@@ -183,6 +183,10 @@ window.onload = function(){
                 document.getElementById('withdraw-btn').removeEventListener('click', withdraw);
                 var withdrawAmt = Number(document.getElementById('withdraw-amt').value);
                 if(withdrawAmt >= 100){
+                    if(withdrawAmt > totalBal){
+                        alert("Insufficient Balance");
+                        return;
+                    }
                     totalBal -= withdrawAmt;
                     document.getElementById('withdraw-amt').value = '';
                     mesg = "The amount of "+ withdrawAmt+" has been successfully withdrawn";
