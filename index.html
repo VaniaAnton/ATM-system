@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Bank</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script type="module" src="./script.js"></script>
+</head>
+<body>
+    <div class="center-div">
+        <h1>Elite Bank</h1>
+        <div id="login-portal">
+            <h3>Login</h3><br>
+            <label>Account no:</label><br>
+            <input type="text" id="lAccNo" class="textbox-style margin-button-12" required><br>
+            <label>Pin no:</label><br>
+            <input type="text" id="lAccPin" class="textbox-style margin-button-12" required><br>
+            <button id="login-btn" class="margin-button-12">Login</button><br>
+            <label id="switchToReg" class="switch">Don't have an account? <br>Register</label>
+        </div><br>
+
+        <div id="register-portal">
+            <h3>Register</h3><br>
+            <label>Name:</label><br>
+            <input type="text" id="rAccName" class="textbox-style margin-button-12" required><br>
+            <label>Account no:</label><br>
+            <input type="text" id="rAccNo" class="textbox-style margin-button-12" required><br>
+            <label>Pin no:</label><br>
+            <input type="text" id="rAccPin" class="textbox-style margin-button-12" required><br>
+            <label>Confirm Pin no:</label><br>
+            <input type="text" id="rConAccPin" class="textbox-style margin-button-12" required><br>
+            <button id="register-btn" class="margin-button-12">Register</button><br>
+            <label id="switchToLogin" class="switch">Already have an account? Login</label>
+        </div><br>
+ 
+        <div id="portal">
+            <label id="userName">....</label><br>
+            <label id="totalBal">....</label><br>
+
+            <div id="deposit-portal">
+                <h4>Deposit</h4><br>
+                <label>Enter Amount:</label><br>
+                <input type="text" id="deposit-amt" class="textbox-style margin-button-12" required><br>
+                <button id="dep-submit">Deposit</button>
+            </div><br>
+
+            <div id="withdraw-portal">
+                <h4>Withdraw</h4><br>
+                <label>Enter Amount:</label><br>
+                <input type="text" id="withdraw-amt" class="textbox-style margin-button-12" required><br>
+                <button id="with-submit">Withdraw</button>
+            </div><br>
+
+            <div id="transfer-portal">
+                <h4>Transfer</h4><br>
+                <label>Enter Account no:</label><br>
+                <input type="text" id="transfer-acc-no" class="textbox-style margin-button-12" required><br>
+                <label>Enter Amount:</label><br>
+                <input type="text" id="transfer-amt" class="textbox-style margin-button-12" required><br>
+                <button id="transfer-submit">Transfer</button>
+            </div><br>
+
+            <div id="options">
+                <h3>Please select an option</h3><br>
+                <button id="deposit-btn">Deposit</button>
+                <button id="withdraw-btn">Withdraw</button>
+                <button id="transfer-btn">Transfer</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

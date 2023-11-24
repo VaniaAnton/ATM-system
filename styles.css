@@ -1,0 +1,48 @@
+body{
+    background-color: black;
+}
+.center-div {
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid black;
+    border-radius: 30px;
+    padding: 30px;
+}
+.textbox-style{
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 5px 0px;
+}
+.margin-button-12{
+    margin: 12px;
+}
+#errMsg{
+    color: red;
+}
+button{
+    border:0;
+    border-radius: 40px;
+    font-size: 13pt;
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+}
+button:hover{
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+.switch:hover{
+    background-color: white;
+    color: green;
+    border: 0.5px solid black;
+}
+#register-portal, #portal, #deposit-portal, #withdraw-portal, #transfer-portal{
+    display: none;
+}
+h3,h4{
+    display: inline-block;
+}
