@@ -40,7 +40,15 @@ window.onload = function(){
         var lAccNo = document.getElementById('lAccNo').value;
         var lAccPin = document.getElementById('lAccPin').value;
         if(lAccNo.match(accNoPattern) && lAccPin.match(accPinPattern)){
-            portal(lAccNo, lAccPin);
+            get(child(dbRef, "accNo "+lAccNo+"/accPin "+lAccPin+"/accDetails")).then((snapshot)=>{
+                if(snapshot.exists()){
+                    portal(lAccNo, lAccPin);
+                }else{
+                    alert("No data found in database");
+                }
+            }).catch((error)=>{
+                alert("Error in getting data\n"+error);
+            });
         }
         else{
             alert("Please enter valid details");
@@ -54,21 +62,32 @@ window.onload = function(){
         var rAccName = document.getElementById('rAccName').value;
         var rConAccPin = document.getElementById('rConAccPin').value;
         if(rAccName != null && rAccNo.match(accNoPattern) && rAccPin.match(accPinPattern) && rAccPin == rConAccPin){
-            set(ref(db, "accNo " + rAccNo + "/accPin " +rAccPin+"/accDetails"), {
-                name: rAccName,
-                avalBal: 0
-            }).then(()=>{
-                alert("Registration Successful");
-            }).catch((error)=>{
-                alert("Registration Failed\n"+error);
-            });
+            get(child(dbRef, "accNo "+rAccNo+"/accPin "+rAccPin+"/accDetails")).then((snapshot)=>{
+                if(snapshot.exists()){
+                    alert("Account already exists");
+                    switchToLogin();
+                }
+                else{
+                    set(ref(db, "accNo " + rAccNo + "/accPin " +rAccPin+"/accDetails"), {
+                        name: rAccName,
+                        avalBal: 0
+                    }).then(()=>{
+                        alert("Registration Successful");
+                        switchToLogin();
+                    }).catch((error)=>{
+                        alert("Registration Failed\n"+error);
+                    });
 
-            set(ref(db, "accNo "+rAccNo+"/received"),{
-                receivedAmt: 0
-            }).then(()=>{
-                console.log("Received amount updated");
+                    set(ref(db, "accNo "+rAccNo+"/received"),{
+                        receivedAmt: 0
+                    }).then(()=>{
+                        console.log("Received amount updated");
+                    }).catch((error)=>{
+                        console.log("Received amount updation failed\n"+error);
+                    });
+                }
             }).catch((error)=>{
-                console.log("Received amount updation failed\n"+error);
+                alert("Error in getting data\n"+error);
             });
         }else{
             alert("Please enter valid details");
